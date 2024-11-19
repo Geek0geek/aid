@@ -1,124 +1,148 @@
-/* styles.css */
-
-/* Resetting some default styles for better cross-browser compatibility */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styles */
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Light background for readability */
-    color: #333; /* Dark text color for contrast */
-}
-
-/* Container styles */
-.container {
-    max-width: 600px; /* Limit the width of the container */
-    margin: 50px auto; /* Center the container with margin */
-    padding: 20px;
-    background-color: white; /* White background for the chat area */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-/* Heading styles */
-h1 {
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Space below the heading */
-    color: #007bff; /* Blue color for the title */
-}
-
-/* Chatbox styles */
-#chatbox {
     display: flex;
-    flex-direction: column; /* Arrange children vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
 }
 
-/* Messages area styles */
+/* Container Styling */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Heading Styling */
+h1 {
+    color: #007bff; /* Blue color */
+    margin-bottom: 20px;
+}
+
+/* Chatbox Styling */
+#chatbox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Message Styling */
 #messages {
-    flex-grow: 1; /* Allows messages to take available space */
-    overflow-y: auto; /* Scrollable area for messages */
-    height: 300px; /* Set a fixed height */
-    padding: 10px;
-    border: 1px solid #007bff; /* Blue border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #e9f7ff; /* Light blue background */
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
-/* Message styles */
+/* Individual message bubbles */
 .message {
-    margin-bottom: 10px; /* Space between messages */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners for messages */
-    opacity: 0; /* Start hidden for animation */
-    animation: fadeIn 0.5s forwards; /* Fade-in animation */
+    padding: 8px;
+    margin: 10px 0; /* Add space between messages */
+    border-radius: 8px;
+    width: fit-content;
+    max-width: 80%;
+    display: inline-block;
 }
 
-/* User message styling */
+/* Styling for the user message */
 .message.user {
-    background-color: #007bff; /* Blue background for user messages */
-    color: white; /* White text color for contrast */
+    background-color: #e1f5fe; /* Light blue for user */
+    align-self: flex-end;
 }
 
-/* Aid message styling */
+/* Styling for the aid (bot) message */
 .message.aid {
-    background-color: #ffcccc; /* Light red background for aid messages */
-    color: #c70000; /* Dark red text color */
+    background-color: #ffebee; /* Light red for aid */
+    align-self: flex-start;
 }
 
-/* Animation for messages */
-@keyframes fadeIn {
-    to {
-        opacity: 1; /* Fully visible at the end of the animation */
-    }
+/* Input field styling */
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
-/* Input field styles */
-#user-input {
-    padding: 10px; /* Padding for comfort */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 10px; /* Space above the input */
-}
-
-/* Button styles */
+/* Send button */
 button {
-    cursor: pointer; /* Change cursor to pointer on hover */
-    padding: 10px 15px; /* Padding for buttons */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 10px; /* Space above buttons */
-    transition: background-color 0.3s; /* Smooth transition for background color */
+    width: 80%;
+    padding: 12px;
+    background-color: #007bff; /* Blue color for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px 0;
 }
 
-#send-button {
-    background-color: #007bff; /* Blue button */
-    color: white; /* White text */
+button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
 }
 
-#send-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
+/* Clear button */
 .clear {
-    background-color: #ff4d4d; /* Red button */
-    color: white; /* White text */
+    background-color: #ff4444; /* Red color for clear button */
 }
 
 .clear:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #d32f2f; /* Darker red for hover effect */
 }
 
-/* Responsive design */
+/* Image styling */
+.equipment-img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Scroll bar customization */
+#messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 8px;
+}
+
+#messages::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Responsiveness */
 @media (max-width: 600px) {
     .container {
-        padding: 10px; /* Reduce padding on smaller screens */
+        width: 90%;
+        padding: 15px;
     }
 
-    #messages {
-        height: 200px; /* Reduce height on smaller screens */
+    input[type="text"], button {
+        width: 90%;
     }
 }

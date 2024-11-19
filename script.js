@@ -1,27 +1,27 @@
 const medicalConditions = {
     bleeding: {
         solution: "Apply firm pressure to the wound with a clean cloth. Elevate the injury above heart level. If bleeding persists for more than 10 minutes, consult a doctor.",
-        image: "antiseptic.png"
+       
     },
     burn: {
         solution: "Cool the burn with running water for at least 10 minutes. Do not apply ice or butter. Cover with a clean, non-stick dressing. Consult a doctor for severe burns.",
-        image: "bandage.png"
+       
     },
     fever: {
         solution: "Drink plenty of fluids and rest. Take over-the-counter medications like paracetamol for high fever. Contact a doctor if the fever persists for more than 3 days.",
-        image: "thermometer.png"
+       
     },
     headache: {
         solution: "Rest in a quiet, dark room. Stay hydrated. Take over-the-counter pain relief. If headaches persist or worsen, consult a doctor.",
-        image: "headache.png"
+       
     },
     nausea: {
         solution: "Sip on clear fluids. Eat small, bland meals like crackers or bananas. Avoid strong odors. Contact a doctor if vomiting lasts more than 24 hours.",
-        image: "ginger.png"
+        
     },
     default: {
         solution: "I'm sorry, I couldn't find information on this. Please provide more details or consult a healthcare professional.",
-        image: "help.png"
+        
     }
 };
 

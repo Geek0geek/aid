@@ -98,4 +98,15 @@ window.onload = function () {
         const condition = medicalConditions[Object.keys(medicalConditions).find(key => text.includes(key))];
         displayMessage(sender, text, condition?.image || null);
     });
+
+    // Attach click event to send button
+    const sendButton = document.getElementById("send-button");
+    sendButton.addEventListener("click", handleQuery);
+
+    // Optionally, allow 'Enter' key to submit the query
+    document.getElementById("user-input").addEventListener("keypress", function (e) {
+        if (e.key === 'Enter') {
+            handleQuery();
+        }
+    });
 };

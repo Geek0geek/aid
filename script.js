@@ -39,20 +39,7 @@ function displayMessage(sender, text, image = null) {
     textDiv.textContent = text;
     messageDiv.appendChild(textDiv);
 
-    
-    if (image) {
-        const img = document.createElement("img");
-        img.src = `assets/${image}`;
-        img.alt = "Relevant medical equipment";
-        img.className = "equipment-img";
-        messageDiv.appendChild(img);
-    }
-
-    messagesDiv.appendChild(messageDiv);
-
    
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-}
 
 
 function handleQuery() {

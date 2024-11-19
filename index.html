@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartAid</title>
+    <title>SmartAid - Medical Assistance</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,10 +12,11 @@
         <div id="chatbox">
             <div id="messages"></div>
             <input type="text" id="user-input" placeholder="Describe your emergency (e.g., 'I'm bleeding')" />
-            <button id="send-button">Send</button>
+            <button onclick="handleQuery()">Send</button>
             <button class="clear" onclick="clearChat()">Clear Chat History</button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

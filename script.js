@@ -20,7 +20,47 @@ const medicalConditions = {
         solution: "Sip on clear fluids. Eat small, bland meals like crackers or bananas. Avoid strong odors. Contact a doctor if vomiting lasts more than 24 hours.",
         image: "ginger.png"
     },
-    // ... Add 95 more conditions with detailed solutions and images.
+    const medicalConditions = {
+    cold: {
+        solution: "Rest and drink plenty of fluids. Use over-the-counter cold remedies for symptom relief. Consult a doctor if symptoms persist beyond 10 days or worsen significantly.",
+        image: "cold-remedy.png"
+    },
+    cough: {
+        solution: "Stay hydrated and use honey or lozenges to soothe the throat. Use a humidifier to keep airways moist. Consult a doctor if the cough lasts more than 3 weeks or produces blood.",
+        image: "cough-syrup.png"
+    },
+    sprain: {
+        solution: "Use the R.I.C.E. method: Rest, Ice, Compression, and Elevation. Avoid putting weight on the injured area. If swelling or pain persists, consult a doctor.",
+        image: "bandage.png"
+    },
+    indigestion: {
+        solution: "Eat smaller meals, avoid spicy or fatty foods, and drink herbal teas. Use antacids for immediate relief. Consult a doctor if symptoms persist or worsen.",
+        image: "antacid.png"
+    },
+    constipation: {
+        solution: "Increase fiber intake, stay hydrated, and engage in regular physical activity. Use over-the-counter laxatives if needed. Consult a doctor if constipation persists for more than a week.",
+        image: "fiber-supplement.png"
+    },
+    diarrhea: {
+        solution: "Stay hydrated with oral rehydration solutions or clear fluids. Avoid dairy and greasy foods. Consult a doctor if diarrhea lasts more than 2 days or is accompanied by severe dehydration.",
+        image: "oral-rehydration.png"
+    },
+    sunburn: {
+        solution: "Cool the skin with cold compresses or aloe vera gel. Avoid further sun exposure and stay hydrated. Consult a doctor if blisters form or if the burn covers a large area.",
+        image: "sunscreen.png"
+    },
+    sore_throat: {
+        solution: "Gargle with warm saltwater, stay hydrated, and use lozenges or throat sprays for relief. Consult a doctor if the sore throat lasts more than a week or is accompanied by high fever.",
+        image: "throat-spray.png"
+    },
+    stomachache: {
+        solution: "Rest and avoid heavy meals. Drink herbal teas like peppermint or chamomile. Consult a doctor if the pain is severe, persistent, or accompanied by fever or vomiting.",
+        image: "herbal-tea.png"
+    },
+    fatigue: {
+        solution: "Ensure adequate sleep, stay hydrated, and eat a balanced diet. Avoid caffeine and alcohol close to bedtime. Consult a doctor if fatigue persists despite lifestyle changes.",
+        image: "sleep-mask.png"
+    },
     default: {
         solution: "I'm sorry, I couldn't find information on this. Please provide more details or consult a healthcare professional.",
         image: "help.png"

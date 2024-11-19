@@ -1,4 +1,3 @@
-// Medical conditions with solutions
 const medicalConditions = {
     bleeding: {
         solution: "Apply firm pressure to the wound with a clean cloth. Elevate the injury above heart level. If bleeding persists for more than 10 minutes, consult a doctor.",
@@ -26,22 +25,21 @@ const medicalConditions = {
     }
 };
 
-// Chat history
 let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
 
-// Display messages in the chat
+
 function displayMessage(sender, text, image = null) {
     const messagesDiv = document.getElementById("messages");
 
     const messageDiv = document.createElement("div");
     messageDiv.className = `message ${sender}`;
 
-    // Add message text
+    
     const textDiv = document.createElement("p");
     textDiv.textContent = text;
     messageDiv.appendChild(textDiv);
 
-    // Add image if available
+    
     if (image) {
         const img = document.createElement("img");
         img.src = `assets/${image}`;
@@ -52,58 +50,57 @@ function displayMessage(sender, text, image = null) {
 
     messagesDiv.appendChild(messageDiv);
 
-    // Auto-scroll to the bottom
+   
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-// Handle user input
+
 function handleQuery() {
     const userInput = document.getElementById("user-input").value.trim();
 
     if (!userInput) return;
 
-    // Add user message
+  
     displayMessage("user", userInput);
     chatHistory.push({ sender: "user", text: userInput });
 
-    // Find solution
+   
     const keyword = Object.keys(medicalConditions).find(key =>
         userInput.toLowerCase().includes(key)
     );
     const condition = medicalConditions[keyword] || medicalConditions.default;
 
-    // Add bot response
+    
     displayMessage("aid", condition.solution, condition.image);
     chatHistory.push({ sender: "aid", text: condition.solution });
 
-    // Save chat history
+    
     localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
 
-    // Clear user input field
     document.getElementById("user-input").value = "";
 }
 
-// Clear chat history
+
 function clearChat() {
     chatHistory = [];
     localStorage.removeItem("chatHistory");
 
-    // Clear UI
+    
     document.getElementById("messages").innerHTML = "";
 }
 
-// Load chat history on page load
+
 window.onload = function () {
     chatHistory.forEach(({ sender, text }) => {
         const condition = medicalConditions[Object.keys(medicalConditions).find(key => text.includes(key))];
         displayMessage(sender, text, condition?.image || null);
     });
 
-    // Attach click event to send button
+   
     const sendButton = document.getElementById("send-button");
     sendButton.addEventListener("click", handleQuery);
 
-    // Optionally, allow 'Enter' key to submit the query
+   
     document.getElementById("user-input").addEventListener("keypress", function (e) {
         if (e.key === 'Enter') {
             handleQuery();

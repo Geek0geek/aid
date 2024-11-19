@@ -1,4 +1,4 @@
-const medicalConditions = {
+const conditions = {
     bleeding: {
         solution: "Apply firm pressure to the wound with a clean cloth. Elevate the injury above heart level. If bleeding persists for more than 10 minutes, consult a doctor.",
        
@@ -17,80 +17,33 @@ const medicalConditions = {
     },
     nausea: {
         solution: "Sip on clear fluids. Eat small, bland meals like crackers or bananas. Avoid strong odors. Contact a doctor if vomiting lasts more than 24 hours.",
-        
     },
-    default: {
-        solution: "I'm sorry, I couldn't find information on this. Please provide more details or consult a healthcare professional.",
-        
-    }
+    
 };
 
-let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
-
-
-function displayMessage(sender, text, image = null) {
-    const messagesDiv = document.getElementById("messages");
-
-    const messageDiv = document.createElement("div");
-    messageDiv.className = `message ${sender}`;
-
-    
-    const textDiv = document.createElement("p");
-    textDiv.textContent = text;
-    messageDiv.appendChild(textDiv);
-
-   
-
-
 function handleQuery() {
-    const userInput = document.getElementById("user-input").value.trim();
-
-    if (!userInput) return;
-
-  
-    displayMessage("user", userInput);
-    chatHistory.push({ sender: "user", text: userInput });
-
-   
-    const keyword = Object.keys(medicalConditions).find(key =>
-        userInput.toLowerCase().includes(key)
-    );
-    const condition = medicalConditions[keyword] || medicalConditions.default;
+    const userInput = document.getElementById("user-input").value.toLowerCase();
+    let response = { solution: "I'm sorry, I didn't understand that." };
 
     
-    displayMessage("aid", condition.solution, condition.image);
-    chatHistory.push({ sender: "aid", text: condition.solution });
+    if (conditions[userInput]) {
+        response = conditions[userInput];
+    }
 
     
-    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+    document.getElementById("messages").innerHTML += `
+        <div class="message user-message">
+            <strong>You:</strong> ${userInput}
+        </div>
+        <div class="message bot-message">
+            <strong>SmartAid:</strong> ${response.solution}
+        </div>
+    `;
 
+    
     document.getElementById("user-input").value = "";
 }
 
-
 function clearChat() {
-    chatHistory = [];
-    localStorage.removeItem("chatHistory");
-
-    
     document.getElementById("messages").innerHTML = "";
 }
-
-
-window.onload = function () {
-    chatHistory.forEach(({ sender, text }) => {
-        const condition = medicalConditions[Object.keys(medicalConditions).find(key => text.includes(key))];
-        displayMessage(sender, text, condition?.image || null);
-    });
-
-   
-    const sendButton = document.getElementById("send-button");
-    sendButton.addEventListener("click", handleQuery);
-
-   
-    document.getElementById("user-input").addEventListener("keypress", function (e) {
-        if (e.key === 'Enter') {
-            handleQuery();
-        }
-    });
-};
